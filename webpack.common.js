@@ -19,7 +19,6 @@ const commonComponentsResources = [{
 module.exports = {
   entry: {
     'bundle': ['./src/client/javascripts/index.jsx', './src/client/styles/main.scss'],
-    'vendor': ['@babel/polyfill', 'foundation-sites', 'react', 'react-dom','react-router-dom', 'redux', 'react-redux', 'lodash', 'humps']
   },
   output: {
     filename: '[name].js',

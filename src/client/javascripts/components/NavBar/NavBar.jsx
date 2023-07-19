@@ -6,6 +6,7 @@ import ListItem from '@mui/material/ListItem';
 import Toolbar from '@mui/material/Toolbar';
 import CssBaseline from '@mui/material/CssBaseline';
 import config from 'client/javascripts/config/config.json';
+import IconMapper from '../IconMapper';
 
 const NavBar = ({ menuItems }) => {
   const [selectedTab, setSelectedTab] = React.useState(menuItems[0].name);
@@ -32,21 +33,7 @@ const NavBar = ({ menuItems }) => {
 
   return (
     <Box
-      sx={{
-        width: '100%',
-        borderRadius: '6px',
-        marginBottom: '1rem',
-        boxShadow: '0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%)',
-        position: 'fixed',
-        zIndex: '10',
-        marginTop: '4rem',
-        display: {
-          xs: 'none',
-          lg: 'block',
-          xl: 'block',
-        },
-        backgroundColor: configStyles.tabBarBgColor,
-      }}
+      sx={configStyles.navBarStyles}
     >
       <Toolbar
         sx={{
@@ -61,6 +48,7 @@ const NavBar = ({ menuItems }) => {
               key={item.name}
               sx={{
                 borderBottom: selectedTab === item.name ? '3px solid firebrick' : 0,
+                marginBottom: selectedTab === item.name ? '5px' : 0,
                 cursor: 'pointer',
                 minHeight: 'inherit',
               }}
@@ -70,7 +58,7 @@ const NavBar = ({ menuItems }) => {
                 minWidth: '2.5rem',
               }}
               >
-                {item.icon}
+                  <IconMapper iconName={item.icon.toLowerCase()} />
               </ListItemIcon>
               <ListItemText primary={item.name} />
             </ListItem>

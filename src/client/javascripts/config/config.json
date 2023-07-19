@@ -3,8 +3,8 @@
   "appBar": {
     "styles": {
       "tabBarBgColor": "#FFF",
-      "logo": "Adyar Speciality Clinic.png",
-      "title": "Adyar Speciality Clinic",
+      "logo": "doctor_app_t.png",
+      "title": "Mr.Doctor",
       "primaryColor": "firebrick",
       "appBarStyle": {
         "backgroundColor": "#FFF",
@@ -21,6 +21,7 @@
           "sm": "none",
           "md": "block"
         },
+        "fontWeight": "500",
         "padding": "0.75rem"
       },
       "hamburgerButton": {
@@ -38,12 +39,37 @@
         "profile": {
           "marginBottom": "0"
         }
+      },
+      "signinButton": {
+        "text": "Login",
+        "styles": {
+          "display": {
+            "xs": "none",
+            "lg": "unset"
+          }
+        }
+      },
+      "navBarStyles": {
+        "width": "100%",
+        "borderRadius": "6px",
+        "marginBottom": "1rem",
+        "boxShadow": "0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%)",
+        "position": "fixed",
+        "zIndex": "10",
+        "marginTop": "4rem",
+        "display": {
+          "xs": "none",
+          "lg": "block",
+          "xl": "block"
+        },
+        "backgroundColor": "#FFF",
+        "color": "#717070"
       }
     },
     "mobileMainMenuItems": {
       "mainItems":[
         {
-          "name":"Home",
+          "name":"Home1",
           "id":"app",
           "icon":"<HomeIcon />"
         },
@@ -77,53 +103,86 @@
           "id":"about_us_main_container",
           "icon":"<InfoIcon />"
         }
-      ],
-      "socialMediaItems":[
-        {
-          "name":"Instagram",
-          "icon":"<InstagramIcon />",
-          "enabled":"instagramEnabled"
-        },
-        {
-          "name":"Facebook",
-          "icon":"<FacebookIcon />",
-          "enabled":"facebookEnabled"
-        },
-        {
-          "name":"Youtube",
-          "icon":"<YouTubeIcon />",
-          "enabled":"youtubeEnabled"
-        },
-        {
-          "name":"Twitter",
-          "icon":"<TwitterIcon />",
-          "enabled":"twitterEnabled"
-        }
       ]
     },
     "features": {
+      "showTitle": false,
       "showSearchBar": false,
       "showProfileMenu": true,
       "showReports": true,
       "googleSignin": true,
+      "navItems": [
+        {
+          "name": "Home1",
+          "id": "app",
+          "icon": "HomeIcon",
+          "size" : "small"
+        },
+        {
+          "name":"Packages",
+          "id":"packages_container",
+          "icon": "HealthAndSafetyIcon",
+          "size" : "small"
+        },
+        {
+          "name":"Appointment",
+          "id":"appointment_main_container",
+          "icon": "EventNoteIcon",
+          "size" : "small"
+        },
+        {
+          "name":"Testimonials",
+          "id":"patient_care_main_container",
+          "icon": "ForumIcon",
+          "size" : "small"
+        },
+        {
+          "name":"Contact Us",
+          "id":"contact_us_main_container",
+          "icon":"ContactPhoneIcon",
+          "size" : "small"
+        },
+        {
+          "name":"Locate Us",
+          "id":"app",
+          "icon":"LocationOnIcon",
+          "size" : "small"
+        },
+        {
+          "name":"About Us",
+          "id":"about_us_main_container",
+          "icon":"InfoIcon",
+          "size" : "small"
+        }
+      ],
       "socialMedia":  {
         "enabled": true,
-        "instagram": {
-          "enabled": true,
-          "link": "https://www.instagram.com/"
-        },
-        "facebook": {
-          "enabled": true,
-          "link": "https://www.instagram.com/"
-        },
-        "twitter": {
-          "enabled": true,
-          "link": "https://www.instagram.com/"
-        },
-        "youtube":  {
-          "enabled": true,
-          "link": "https://www.instagram.com/"
-        }
+        "items": [
+          {
+            "name": "Instagram",
+            "enabled": true,
+            "link": "https://www.instagram.com/",
+            "size" : "small"
+          },
+          {
+            "name": "Facebook",
+            "enabled": true,
+            "link": "https://www.instagram.com/",
+            "size" : "small"
+          },
+          {
+            "name": "Youtube",
+            "enabled": true,
+            "link": "https://www.instagram.com/",
+            "size" : "medium"
+          },
+          {
+            "name": "Twitter",
+            "enabled": true,
+            "link": "https://www.instagram.com/",
+            "size" : "small"
+          }
+        ]
       }
     }
   }

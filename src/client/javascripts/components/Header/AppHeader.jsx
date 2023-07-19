@@ -13,18 +13,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import PersonIcon from '@mui/icons-material/Person';
-import HomeIcon from '@mui/icons-material/Home';
-import InfoIcon from '@mui/icons-material/Info';
-import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-import EventNoteIcon from '@mui/icons-material/EventNote';
-import ForumIcon from '@mui/icons-material/Forum';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import MoreIcon from '@mui/icons-material/MoreVert';
@@ -37,18 +26,16 @@ import MenuDrawer from '../MenuDrawer';
 import config from '../../config/config.json';
 import appConfig from '../../config/index';
 import NavBar from '../NavBar';
+import IconMapper from '../IconMapper';
 
 // eslint-disable-next-line max-len
 const {
   appBar: {
     styles: configStyles, features: {
-      socialMedia, showSearchBar, showProfileMenu, googleSignin,
+      socialMedia, showSearchBar, showProfileMenu, googleSignin, navItems, showTitle
     },
   },
 } = config;
-const {
-  instagram, twitter, youtube, facebook,
-} = socialMedia;
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -105,72 +92,6 @@ export default function AppHeader({ page = 'homePage', isAdminUser = false }) {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const isSocialMenuOpen = Boolean(socialAnchorEl);
-
-  const mobileMainMenuItems = {
-    mainItems: [
-      {
-        name: 'Home',
-        id: 'app',
-        icon: <HomeIcon />,
-      },
-      {
-        name: 'Health Packages',
-        id: 'packages_container',
-        icon: <HealthAndSafetyIcon />,
-      },
-      {
-        name: 'Appointment',
-        id: 'appointment_main_container',
-        icon: <EventNoteIcon />,
-      },
-      {
-        name: 'Testimonials',
-        id: 'patient_care_main_container',
-        icon: <ForumIcon />,
-      },
-      {
-        name: 'Contact Us',
-        id: 'contact_us_main_container',
-        icon: <ContactPhoneIcon />,
-      },
-      {
-        name: 'Locate Us',
-        id: 'app',
-        icon: <LocationOnIcon />,
-      },
-      {
-        name: 'About Us',
-        id: 'about_us_main_container',
-        icon: <InfoIcon />,
-      },
-    ],
-    socialMediaItems: [
-      {
-        name: 'Instagram',
-        icon: <InstagramIcon sx={{ color: configStyles.primaryColor }} fontSize="small" />,
-        enabled: instagram.enabled,
-        link: instagram.link,
-      },
-      {
-        name: 'Facebook',
-        icon: <FacebookIcon sx={{ color: configStyles.primaryColor }} fontSize="small" />,
-        enabled: facebook.enabled,
-        link: facebook.link,
-      },
-      {
-        name: 'Youtube',
-        icon: <YouTubeIcon sx={{ color: configStyles.primaryColor }} fontSize="small" />,
-        enabled: youtube.enabled,
-        link: youtube.link,
-      },
-      {
-        name: 'Twitter',
-        icon: <TwitterIcon sx={{ color: configStyles.primaryColor }} fontSize="small" />,
-        enabled: twitter.enabled,
-        link: twitter.link,
-      },
-    ],
-  };
 
   const handleDrawerOpen = () => {
     setDrawerOpen(!drawerOpen);
@@ -257,22 +178,14 @@ export default function AppHeader({ page = 'homePage', isAdminUser = false }) {
       open={isSocialMenuOpen}
       onClose={handleMenuClose}
     >
-      {mobileMainMenuItems.socialMediaItems.map(item => item.enabled && (
-        <MenuItem onClick={() => handleMenuClose(item.link)}>
-          <ListItemIcon>
-            {item.icon}
-          </ListItemIcon>
-          <ListItemText primary={item.name} />
-        </MenuItem>
+      {socialMedia.items.map(item => item.enabled && (
+          <MenuItem onClick={() => handleMenuClose(item.link)}>
+            <ListItemIcon>
+              <IconMapper iconName={item.name.toLowerCase()} iconSize={item.size}/>
+            </ListItemIcon>
+            <ListItemText primary={item.name} />
+          </MenuItem>
       ))}
-      { (
-        <MenuItem onClick={handleMenuClose}>
-          <ListItemIcon>
-            <InstagramIcon sx={{ color: configStyles.primaryColor }} fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>Instagram</ListItemText>
-        </MenuItem>
-      ) }
     </Menu>
   );
 
@@ -357,15 +270,17 @@ export default function AppHeader({ page = 'homePage', isAdminUser = false }) {
           <Link to="/asc/dashboard" id="nav_link">
             <Box component="img" alt="Main Logo" src={`asc/images/${configStyles.logo}`} sx={configStyles.logoStyle} />
           </Link>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={configStyles.titleText}
-          >
+          {
+              showTitle && <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={configStyles.titleText}
+            >
 
-            {configStyles.title}
-          </Typography>
+              {configStyles.title}
+            </Typography>
+          }
           {showSearchBar && (
           <Search>
             <SearchIconWrapper>
@@ -387,22 +302,18 @@ export default function AppHeader({ page = 'homePage', isAdminUser = false }) {
                   xs: '0.25rem',
                   lg: '0.5rem 1rem',
                 },
+                fontWeight: "bold"
               }}
-              variant="outlined"
+              variant="contained"
               href={`${appConfig.appBaseURL}/asc/login`}
               color="secondary"
               startIcon={<LoginIcon />}
             >
               <Typography
                 variant="caption"
-                sx={{
-                  display: {
-                    xs: 'none',
-                    lg: 'unset',
-                  },
-                }}
+                sx={configStyles.signinButton.styles}
               >
-                Signin
+                {configStyles.signinButton.text}
               </Typography>
             </Button>
             )
@@ -448,6 +359,7 @@ export default function AppHeader({ page = 'homePage', isAdminUser = false }) {
               aria-haspopup="true"
               onClick={handleSocialMenuOpen}
               color="inherit"
+              id={socialMenuId}
               sx={{ padding: '1.25rem' }}
             >
               <ConnectWithoutContactIcon sx={{ color: configStyles.primaryColor }} />
@@ -471,11 +383,12 @@ export default function AppHeader({ page = 'homePage', isAdminUser = false }) {
         </Toolbar>
       </AppBar>
       {
-        page !== 'profilePage' && <NavBar menuItems={mobileMainMenuItems.mainItems} />
+        page !== 'profilePage' && <NavBar menuItems={navItems} />
       }
       <DrawerContext.Provider value={drawerValue}>
         <MenuDrawer
-          mobileMainMenuItems={mobileMainMenuItems}
+          socialMediaItems={socialMedia.items}
+          navItems={navItems}
           socialMediaEnabled={socialMedia && socialMedia.enabled}
         />
       </DrawerContext.Provider>

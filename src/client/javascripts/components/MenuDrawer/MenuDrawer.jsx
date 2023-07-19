@@ -8,9 +8,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { DrawerContext } from '../../utils/ContextProviders';
+import IconMapper from '../IconMapper';
 
-export default function MenuDrawer({ mobileMainMenuItems, socialMediaEnabled }) {
-  const { mainItems, socialMediaItems } = mobileMainMenuItems;
+export default function MenuDrawer({ navItems, socialMediaItems, socialMediaEnabled }) {
   const handleTabChange = (name, id) => {
     // const tabToDivMapping = ['root', 'about_us_main_container', 'packages_container', 'appointment_main_container', 'patient_care_main_container', 'contact_us_main_container', 'root'];
     const element = document.getElementById(id);
@@ -31,11 +31,11 @@ export default function MenuDrawer({ mobileMainMenuItems, socialMediaEnabled }) 
       onKeyDown={() => fn(!val)}
     >
       <List>
-        {mainItems.map((item, index) => (
+        {navItems.map((item, index) => (
           <ListItem key={item.name} disablePadding onClick={() => handleTabChange(item.name, item.id)}>
             <ListItemButton>
               <ListItemIcon>
-                {item.icon}
+                <IconMapper iconName={item.icon.toLowerCase()} iconSize={item.size} />
               </ListItemIcon>
               <ListItemText primary={item.name} />
             </ListItemButton>
@@ -49,7 +49,7 @@ export default function MenuDrawer({ mobileMainMenuItems, socialMediaEnabled }) 
         <ListItem key={item.name} disablePadding onClick={() => handleTabChange(item.name, item.id)}>
           <ListItemButton>
             <ListItemIcon>
-              {item.icon}
+              <IconMapper iconName={item.name.toLowerCase()} iconSize={item.size} />
             </ListItemIcon>
             <ListItemText primary={item.name} />
           </ListItemButton>
