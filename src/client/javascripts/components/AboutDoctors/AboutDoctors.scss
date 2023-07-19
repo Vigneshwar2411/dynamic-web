@@ -1,0 +1,37 @@
+#about_doctors_container {
+    position: relative;
+}
+
+#about_doctors {
+    text-align: center;
+    max-width: 85%;
+    margin: 4rem auto;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+#about_doctors > h3 {
+    margin-bottom: 2rem;
+}
+
+.doctor_card {
+    display: flex;
+    flex-direction: row;
+    height: 15rem;
+}
+
+.doctor_details {
+    padding: 1rem;
+}
+
+.doctor_details > img {
+    margin-bottom: 1rem;
+}
+
+.doctor_details_description {
+    visibility: hidden;
+}
+
+.doctor_details:hover .doctor_details_description {
+    visibility: visible;
+}

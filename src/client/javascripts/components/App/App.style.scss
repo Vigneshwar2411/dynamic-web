@@ -1,0 +1,16 @@
+@import '~styles/palette';
+
+.message {
+  @include color-secondary(color);
+}
+
+#my_appointments, #my_reports {
+  text-align: center;
+  max-width: 85%;
+  margin: 4rem auto;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+#my_reports {
+  border: none;
+}

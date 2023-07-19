@@ -1,0 +1,130 @@
+{
+  "appRoute": "/#",
+  "appBar": {
+    "styles": {
+      "tabBarBgColor": "#FFF",
+      "logo": "Adyar Speciality Clinic.png",
+      "title": "Adyar Speciality Clinic",
+      "primaryColor": "firebrick",
+      "appBarStyle": {
+        "backgroundColor": "#FFF",
+        "position": "Fixed"
+      },
+      "logoStyle": {
+        "width": "75px",
+        "height": "40px"
+      },
+      "titleText": {
+        "color": "#000",
+        "display": {
+          "xs": "none",
+          "sm": "none",
+          "md": "block"
+        },
+        "padding": "0.75rem"
+      },
+      "hamburgerButton": {
+        "display":{
+          "xs":"block",
+          "lg":"none",
+          "xl":"none"
+        },
+        "padding":{
+          "xs":"0.25rem",
+          "md":"0.75rem"
+        }
+      },
+      "menuItems": {
+        "profile": {
+          "marginBottom": "0"
+        }
+      }
+    },
+    "mobileMainMenuItems": {
+      "mainItems":[
+        {
+          "name":"Home",
+          "id":"app",
+          "icon":"<HomeIcon />"
+        },
+        {
+          "name":"Health Packages",
+          "id":"packages_container",
+          "icon":"<HealthAndSafetyIcon />"
+        },
+        {
+          "name":"Appointment",
+          "id":"appointment_main_container",
+          "icon":"<EventNoteIcon />"
+        },
+        {
+          "name":"Testimonials",
+          "id":"patient_care_main_container",
+          "icon":"<ForumIcon />"
+        },
+        {
+          "name":"Contact Us",
+          "id":"contact_us_main_container",
+          "icon":"<ContactPhoneIcon />"
+        },
+        {
+          "name":"Locate Us",
+          "id":"app",
+          "icon":"<LocationOnIcon />"
+        },
+        {
+          "name":"About Us",
+          "id":"about_us_main_container",
+          "icon":"<InfoIcon />"
+        }
+      ],
+      "socialMediaItems":[
+        {
+          "name":"Instagram",
+          "icon":"<InstagramIcon />",
+          "enabled":"instagramEnabled"
+        },
+        {
+          "name":"Facebook",
+          "icon":"<FacebookIcon />",
+          "enabled":"facebookEnabled"
+        },
+        {
+          "name":"Youtube",
+          "icon":"<YouTubeIcon />",
+          "enabled":"youtubeEnabled"
+        },
+        {
+          "name":"Twitter",
+          "icon":"<TwitterIcon />",
+          "enabled":"twitterEnabled"
+        }
+      ]
+    },
+    "features": {
+      "showSearchBar": false,
+      "showProfileMenu": true,
+      "showReports": true,
+      "googleSignin": true,
+      "socialMedia":  {
+        "enabled": true,
+        "instagram": {
+          "enabled": true,
+          "link": "https://www.instagram.com/"
+        },
+        "facebook": {
+          "enabled": true,
+          "link": "https://www.instagram.com/"
+        },
+        "twitter": {
+          "enabled": true,
+          "link": "https://www.instagram.com/"
+        },
+        "youtube":  {
+          "enabled": true,
+          "link": "https://www.instagram.com/"
+        }
+      }
+    }
+  }
+}

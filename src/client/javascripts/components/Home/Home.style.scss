@@ -1,0 +1,116 @@
+.vectorCSS{
+    width: 72.5px;
+    height: 4px;
+}
+.btn-home{
+    color: #DC7471;
+    font-size: 18px;
+    width: 100%;
+    max-width: 275px;
+    height: 52px;
+    /* background-color: #ffffff; */
+    border-color: #DC7471;
+    /* box-sizing: border-box;  */
+    /* border-color: #DC7471; ; */
+    /* box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.15);  */
+    border-radius: 45px;
+    margin-top : 40px;;
+}
+.div-home{
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.sign-out-link {
+    text-decoration: none;
+    color: #000000;
+}
+
+.caption>img {
+    width: 20%;
+    height: 20%;
+}
+
+.backgroud-banners1 {
+    background-image: url("https://chubgcc.in/images/home/main_banner.jpg");
+    height: 680px;
+    min-height: 100%
+}
+.backgroud-banners2 {
+    background-image: url("https://chubgcc.in/images/home/main_banner_2.jpg");
+    height: 600px;
+    min-height: 100%
+}
+.backgroud-banners3{
+    background-image: url("https://chubgcc.in/images/home/main_banner_3.jpg");
+    height: 600px;
+    min-height: 100%
+}
+.backgroud-banners1,
+.backgroud-banners2,
+.backgroud-banners3 {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-caption2-heading,
+.main-caption3-heading{
+    text-align: center;
+    color: #004578;
+}
+.hSecondBannerHeading,
+.hThirdBannerHeading{
+    font-size:  55px;
+}
+.hSecondBannerHeading{
+    font-size: 55px;
+}
+.carousal {
+    margin: auto;
+    width: 65%;
+    text-align: center;
+}
+
+.carousal-img-css {
+    width: 252px;
+    height: 300px;
+}
+
+@media screen and (max-width: 800px) {
+    #divCarausal {
+        visibility: hidden;
+        clear: both;
+        float: left;
+        margin: 10px auto 5px 20px;
+        width: 28%;
+        display: none;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    #divCarausalMobile {
+        visibility: visible;
+        clear: both;
+        float: left;
+        margin: 10px auto 5px 20px;
+        width: 28%;
+        display: block;
+    }
+}
+
+#profile_link, #nav_link {
+    text-decoration: none;
+    color: black;
+}
